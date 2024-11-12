@@ -6,4 +6,7 @@ by filtering and comparing rental properties based on customizable criteria.
 
 """
 class Housing:
+    """include docstring here
+    """
     def __init__(self, id, name, bed, bath, price, sqft, proximity):
+        pass

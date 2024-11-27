@@ -1,3 +1,5 @@
+import pandas as pd
+
 """ Final Project: Student Housing FInder
 UMD Student Housing Finder Framework
 
@@ -25,13 +27,61 @@ class Housing:
         self.sqft = sqft
         self.proximity = proximity
 
+    def __str__(self):
+        return (f"{self.property}: {self.bed} Beds, {self.bath} Baths, ${self.price}/month, "
+                f"{self.sqft} sqft, {self.proximity} miles from campus")
+    
 
-class PriceFilter: 
-    def __init__():
-        pass
-    pass  
+    def load_housing_data(filepath):
+        """"Load housing data from a CSV file and convert it into a list of Housing objects."""
        
+        """***USE the cleaned_housing_data.csv file for the data in the housing.py file!!!!!!!!!!!!!
+        """
+        df = pd.read_csv(filepath)
+        return [
+            Housing(
+                id=row['property_id'],
+                property=row['building_name'],
+                bed=row['number_of_beds'],
+                bath=row['number_of_bathrooms'],
+                price=row['price'],
+                sqft=row['square_feet'],
+                proximity=row['distance_to_campus']
+            )
+            for _, row in df.iterrows()
+        ]
+    
+    def filter_housing(housing_list, bed, bath,max_price, min_sqft, max_distance):
+        """filter the housing based on user preference"""
+        """Filter housing options based on user preferences."""
+        filtered_houses = []  # Create an empty list to store matching houses
+        
+        for house in housing_list:
+            if (house.bed == bed and
+                house.bath == bath and
+                house.price <= max_price and
+                house.sqft >= min_sqft and
+                house.proximity <= max_distance):
+                filtered_houses.append(house)  # Add the matching house to the list
 
-'''
-NOTE: USE the cleaned_housing_data.csv file for the data in the housing.py file!!!!!!!!!!!!!
-'''
+        return filtered_houses  # Return the list of matching houses
+            
+
+def main():
+    """Main function to load data, get user preferences, and find matching housing."""
+    # Load housing data
+    housing = Housing()
+    housing_list = housing.load_housing_data('cleaned_housing_data.csv')
+    #Welcome Statement
+    print("Welcome to University of Maryland Apartment Finder!\n")
+    #User preferences
+    bed = int(input("Number of bedrooms (1-5): "))
+    bath = int(input("Number of bathrooms(1-5): "))
+    max_price = float(input("Maximim price you are willing to pay: $"))
+    min_sqft = int(input("Minimum square footage desired: "))
+    distance = float(input("Maximum distance from campus in miles: "))
+
+    # Filter housing options
+    matching_houses = housing.filter_housing(housing_list, bed, bath, max_price, min_sqft, max_distance)
+
+

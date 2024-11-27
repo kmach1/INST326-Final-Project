@@ -83,23 +83,23 @@ class InputProcessing:
         
         return filtered_data
 
-'''
-# Sample usage of the class:
+''' {Sample usage of the class}
+Setting the input file
 input_file = 'housing.csv'
 
-# Initialize the InputProcessing class
+Initialize the InputProcessing class
 housing_processor = InputProcessing(input_file)
 
-# Read and clean the data
+Read and clean the data
 housing_processor.read_input()
 
-# Process the input data
+Process the input data
 cleaned_data = housing_processor.process_input()
 
-# Filter the data based on user preferences (example)
+Filter the data based on user preferences (example)
 filtered_housing = housing_processor.filter_data(budget=1200, room_count=2, proximity=2.0)
 
-# Display the filtered results
+Display the filtered results
 print(filtered_housing)
 '''
 

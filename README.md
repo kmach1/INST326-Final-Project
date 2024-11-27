@@ -14,6 +14,10 @@ Data Processing: Reads and processes housing data from a CSV file.
 - Square footage
 - Distance from campus (calculated from the STAMP Student Union)
 
+**Accessing the Repository**
+You can view the project files and code directly on GitHub:
+https://github.com/kmach1/INST326-Final-Project
+No need to clone the repository unless you want to run the project locally.
 
 **Usage**
 - Command-Line

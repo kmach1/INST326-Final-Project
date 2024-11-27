@@ -31,3 +31,7 @@ class PriceFilter:
         pass
     pass  
        
+
+'''
+NOTE: USE the cleaned_housing_data.csv file for the data in the housing.py file!!!!!!!!!!!!!
+'''

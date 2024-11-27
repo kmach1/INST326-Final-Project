@@ -1,4 +1,5 @@
 import pandas as pd
+from Final_project import Housing
 
 """
 Responsible for cleaning and approving the .csv input data
@@ -39,8 +40,7 @@ class InputProcessing:
         if self.data is None:
             print("No data to clean.")
             return None
-        # Add your data cleaning steps here
-        # Example: Drop rows with missing values
+        
         self.data.dropna(inplace=True)
 
     def process_input(self):
@@ -83,6 +83,7 @@ class InputProcessing:
         
         return filtered_data
 
+'''
 # Sample usage of the class:
 input_file = 'housing.csv'
 
@@ -100,3 +101,26 @@ filtered_housing = housing_processor.filter_data(budget=1200, room_count=2, prox
 
 # Display the filtered results
 print(filtered_housing)
+'''
+
+if __name__ == "__main__":
+
+    # Initialize the InputProcessing class
+    housing_processor = InputProcessing(Housing.args.input_file)
+
+    # Read and clean the data
+    housing_processor.read_input()
+
+    # Process the input data
+    cleaned_data = housing_processor.process_input()
+
+    # Filter the data based on user preferences
+    filtered_housing = housing_processor.filter_data(
+        budget=Housing.args.budget,
+        room_count=Housing.args.room_count,
+        square_footage=Housing.args.square_footage,
+        proximity=Housing.args.proximity
+    )
+
+    # Display the filtered results
+    print(filtered_housing)

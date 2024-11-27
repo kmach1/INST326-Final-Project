@@ -1,25 +1,48 @@
 import unittest
+#importing the InputProcessing class from the module data_processing.py
+from data_processing import InputProcessing
 
-from Final_project import Housing
-
-class TestHousing(unittest.TestCase):
+class TestInputProcessing(unittest.TestCase):
+    '''
+    Testing the InputProcessing class
+    '''
+    def test_read_input(self):
+        '''
+        Testing the read_input method
+        '''
+        ip = InputProcessing("INST326 Final Project Housing Info - Main_Sheet.csv")
+        ip.read_input()
+        self.assertIsNotNone(ip.data)
     
-    """Unit tests for the Housing class."""
-
-    def test_initialization(self):
-        
-        """Test the initialization of the Housing class."""
-        # Create a Housing object
-        housing = Housing(1, "Terrapin Row", 3, 2, 1200.0, 1000, 0.5)
-        
-        # Check if the attributes are correctly assigned
-        self.assertEqual(housing.id, 1)
-        self.assertEqual(housing.name, "Terrapin Row")
-        self.assertEqual(housing.bed, 3)
-        self.assertEqual(housing.bath, 2)
-        self.assertEqual(housing.price, 1200.0)
-        self.assertEqual(housing.sqft, 1000)
-        self.assertEqual(housing.proximity, 0.5)
+    def test_clean_data(self):
+        '''
+        Testing the clean_data method
+        '''
+        ip = InputProcessing("INST326 Final Project Housing Info - Main_Sheet.csv")
+        ip.read_input()
+        ip.clean_data()
+        self.assertIsNotNone(ip.data)
+    
+    def test_process_input(self):
+        '''
+        Testing the process_input method
+        '''
+        ip = InputProcessing("INST326 Final Project Housing Info - Main_Sheet.csv")
+        ip.read_input()
+        ip.clean_data()
+        data = ip.process_input()
+        self.assertIsNotNone(data)
+    
+    def test_filter_data(self):
+        '''
+        Testing the filter_data method
+        '''
+        ip = InputProcessing("INST326 Final Project Housing Info - Main_Sheet.csv")
+        ip.read_input()
+        ip.clean_data()
+        data = ip.process_input()
+        filtered_data = ip.filter_data(budget=100000, room_count=3, square_footage=1000, proximity=5)
+        self.assertIsNotNone(filtered_data)
 
 if __name__ == '__main__':
     unittest.main()

@@ -35,7 +35,7 @@ class Housing:
     def load_housing_data(filepath):
         """"Load housing data from a CSV file and convert it into a list of Housing objects."""
        
-        """***USE the cleaned_housing_data.csv file for the data in the housing.py file!!!!!!!!!!!!!
+        """USE the cleaned_housing_data.csv file for the data in the housing.py file!!!!!!!!!!!!!
         """
         df = pd.read_csv(filepath)
         return [
@@ -79,7 +79,7 @@ def main():
     bath = int(input("Number of bathrooms(1-5): "))
     max_price = float(input("Maximim price you are willing to pay: $"))
     min_sqft = int(input("Minimum square footage desired: "))
-    distance = float(input("Maximum distance from campus in miles: "))
+    max_distance = float(input("Maximum distance from campus in miles: "))
 
     # Filter housing options
     matching_houses = housing.filter_housing(housing_list, bed, bath, max_price, min_sqft, max_distance)

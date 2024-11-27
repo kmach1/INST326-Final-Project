@@ -1,7 +1,8 @@
 # INST326-Final-Project
-Housing Finder at UMD
-**Overview of Project**
-This is a program designed to help students at the Universirty of Maryland find and explore off-campus housing options, specfically apartments. The application processes the housing data a .csv file which provides information about near campus. 
+**About the Poject**
+A Python-based housing finder application designed specifically for University of Maryland students to search and analyze off-campus apartment options.
+**Project Description**
+This project helps UMD students find off-campus housing by processing apartment data and allowing users to filter based on their preferences. The application reads housing data from CSV files and provides detailed insights about available apartments near campus. 
 
 **Features**
 - Process housing data from CSV file
@@ -14,6 +15,11 @@ This is a program designed to help students at the Universirty of Maryland find 
 - Distance from campus (specifically STAMP Student Union)
 
 
+
+Contributions 
+Karalyn Mach, Genevieve Koduol, Theodore Rose, Sarah Bamba
+
+Distributed under the MIT License. See LICENSE.txt for more information.
 
 
 

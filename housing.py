@@ -10,12 +10,21 @@ class Housing:
 
     Attributes:
         id (int): Unique identifier for the property.
-        name (str): Name or title of the property.
+        property (str): Name or title of the property.
         bed (int): Number of bedrooms in the property.
         bath (int): Number of bathrooms in the property.
         price (float): Monthly rental price of the property.
         sqft (int): Square footage of the property.
         proximity (float): Distance from campus in miles or kilometers.
     """
-    def __init__(self, id, name, bed, bath, price, sqft, proximity):
-        pass
+    def __init__(self, id, property, bed, bath, price, sqft, proximity):
+        self.name = name
+        self.property = property
+        self.bath = bath 
+        self.price = price 
+        self.sqft = sqft
+        self.proximity = proximity
+class PriceFilter: 
+    def __init__():
+        
+       

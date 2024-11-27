@@ -67,10 +67,9 @@ class Housing:
         return filtered_houses  # Return the list of matching houses
             
 
-def main():
+if __name__ == "__main__": 
     """Main function to load data, get user preferences, and find matching housing."""
     # Load housing data
-    
     housing_list = Housing.load_housing_data('cleaned_housing_data.csv')
     #Welcome Statement
     print("Welcome to University of Maryland Apartment Finder!\n")
@@ -83,7 +82,13 @@ def main():
 
     # Filter housing options
     matching_houses = Housing.filter_housing(housing_list, bed, bath, max_price, min_sqft, max_distance)
-
+    # Display results
+    if matching_houses:
+        print("\nHere are the apartments that match your preferences:\n")
+        for house in matching_houses:
+            print(house)
+    else:
+        print("\nSorry, no apartments match your preferences.")
 
 
 

@@ -15,6 +15,19 @@ Data Processing: Reads and processes housing data from a CSV file.
 - Distance from campus (calculated from the STAMP Student Union)
 
 
+Usage
+Command-Line Options
+The program is run from the command line. It processes an input file containing apartment data, applies filters specified by the user, and saves the cleaned data to a CSV file.
+
+Example Command
+python housing.py --input_file apartments.csv --budget 1200 --room_count 2 --square_footage 1000 --proximity 2.0
+
+Arguments
+--budget: Maximum monthly rent per person (e.g., --budget 1200).
+--room_count:  Number of bedrooms (e.g., --room_count 2).
+--square_footage:  Minimum square footage (e.g., --square_footage 1000).
+--proximity: Maximum distance from campus in miles (e.g., --proximity 2.0).
+
 
 Contributions 
 Karalyn Mach, Genevieve Koduol, Theodore Rose, Sarah Bamba

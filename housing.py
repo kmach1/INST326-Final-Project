@@ -70,8 +70,8 @@ class Housing:
 def main():
     """Main function to load data, get user preferences, and find matching housing."""
     # Load housing data
-    housing = Housing()
-    housing_list = housing.load_housing_data('cleaned_housing_data.csv')
+    
+    housing_list = Housing.load_housing_data('cleaned_housing_data.csv')
     #Welcome Statement
     print("Welcome to University of Maryland Apartment Finder!\n")
     #User preferences
@@ -82,6 +82,8 @@ def main():
     max_distance = float(input("Maximum distance from campus in miles: "))
 
     # Filter housing options
-    matching_houses = housing.filter_housing(housing_list, bed, bath, max_price, min_sqft, max_distance)
+    matching_houses = Housing.filter_housing(housing_list, bed, bath, max_price, min_sqft, max_distance)
+
+
 
 

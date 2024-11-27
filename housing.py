@@ -18,13 +18,16 @@ class Housing:
         proximity (float): Distance from campus in miles or kilometers.
     """
     def __init__(self, id, property, bed, bath, price, sqft, proximity):
-        self.name = name
+        self.name = id
         self.property = property
         self.bath = bath 
         self.price = price 
         self.sqft = sqft
         self.proximity = proximity
+
+
 class PriceFilter: 
     def __init__():
-        
+        pass
+    pass  
        

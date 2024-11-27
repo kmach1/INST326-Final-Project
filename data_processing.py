@@ -1,6 +1,9 @@
+import pandas as pd
+
 """
-Resposnsible for cleaning and approving the .txt input data
+Responsible for cleaning and approving the .csv input data
 """
+
 
 class InputProcessing:
     """
@@ -23,15 +26,22 @@ class InputProcessing:
         """
         Read the input file and return the data as a pandas dataframe
         """
-        pass
+        try:
+            self.data = pd.read_csv(self.input_file)
+        except Exception as e:
+            print(f"Error reading the input file: {e}")
+            self.data = None
 
-    def clean_data(self, data):
+    def clean_data(self):
         """
         Clean the data and return the cleaned data
         """
         if self.data is None:
             print("No data to clean.")
             return None
+        # Add your data cleaning steps here
+        # Example: Drop rows with missing values
+        self.data.dropna(inplace=True)
 
     def process_input(self):
         """
@@ -57,24 +67,24 @@ class InputProcessing:
         
         # Filter based on budget
         if budget is not None:
-            filtered_data = filtered_data[filtered_data['Budget'] <= budget]
+            filtered_data = filtered_data[filtered_data['price'] <= budget]
         
         # Filter based on room count
         if room_count is not None:
-            filtered_data = filtered_data[filtered_data['Room Count'] >= room_count]
+            filtered_data = filtered_data[filtered_data['num_beds'] >= room_count]
         
         # Filter based on square footage
         if square_footage is not None:
-            filtered_data = filtered_data[filtered_data['Square Footage'] >= square_footage]
+            filtered_data = filtered_data[filtered_data['sqft'] >= square_footage]
         
         # Filter based on proximity
         if proximity is not None:
-            filtered_data = filtered_data[filtered_data['Proximity'] <= proximity]
+            filtered_data = filtered_data[filtered_data['dis_to_campus_[mi]'] <= proximity]
         
         return filtered_data
 
 # Sample usage of the class:
-input_file = 'housing.py'
+input_file = 'housing.csv'
 
 # Initialize the InputProcessing class
 housing_processor = InputProcessing(input_file)

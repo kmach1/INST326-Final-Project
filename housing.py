@@ -126,9 +126,9 @@ if __name__ == "__main__":
 
 
    # Display results
-   if matching_apartments:
+   if matching_houses:
        print("\nHere are the housing options that match your preferences:\n")
-       for apartment in matching_apartments:
+       for house in matching_houses:
            print(house)
    else:
        print("\nSorry, no housing options match your preferences.")

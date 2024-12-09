@@ -51,59 +51,6 @@ class Housing:
             )
             for _, row in df.iterrows()
         ]
-import pandas as pd
-import data_processing
-
-""" Final Project: Student Housing FInder
-UMD Student Housing Finder Framework
-
-A Python framework designed to help University of Maryland students find suitable housing 
-by filtering and comparing rental properties based on customizable criteria.
-
-"""
-class Housing:
-    """  A class representing a housing option for University of Maryland students.
-
-    Attributes:
-        id (int): Unique identifier for the property.
-        property (str): Name or title of the property.
-        bed (int): Number of bedrooms in the property.
-        bath (int): Number of bathrooms in the property.
-        price (float): Monthly rental price of the property.
-        sqft (int): Square footage of the property.
-        proximity (float): Distance from campus in miles or kilometers.
-    """
-    def __init__(self, id, property, bed, bath, price, sqft, proximity):
-        self.name = id
-        self.property = property
-        self.bath = bath 
-        self.price = price 
-        self.sqft = sqft
-        self.proximity = proximity
-
-    def __str__(self):
-        return (f"{self.property}: {self.bed} Beds, {self.bath} Baths, ${self.price}/month, "
-                f"{self.sqft} sqft, {self.proximity} miles from campus")
-    
-
-    def load_housing_data(filepath):
-        """"Load housing data from a CSV file and convert it into a list of Housing objects."""
-       
-        """USE the cleaned_housing_data.csv file for the data in the housing.py file!!!!!!!!!!!!!
-        """
-        df = pd.read_csv(filepath)
-        return [
-            Housing(
-                id=row['prop_id'],
-                property=row['building_name'],
-                bed=row['num_beds'],
-                bath=row['num_baths'],
-                price=row['price'],
-                sqft=row['sqft'],
-                proximity=row['dis_to_campus_[mi]']
-            )
-            for _, row in df.iterrows()
-        ]
     
 class Bed(Housing):
    """ A class to filter housing by the number of bedrooms."""

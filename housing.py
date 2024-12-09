@@ -151,3 +151,37 @@ class Distance(Housing):
        return [house for house in housing_list if house.proximity <= max_distance]
 
    print("\nSorry, no apartments match your preferences.")
+
+if __name__ == "__main__":
+   """Main function to load data, get user preferences, and find matching housing."""
+   # Load housing data
+   housing_list = Housing.load_housing_data('cleaned_housing_data.csv')
+
+
+   # Welcome statement
+   print("Welcome to University of Maryland Apartment Finder!\n")
+
+
+   # User preferences
+   bed = int(input("Number of bedrooms (1-5): "))
+   bath = int(input("Number of bathrooms (1-5): "))
+   min_price = float(input("Minimum price you are willing to pay: $"))
+   max_price = float(input("Maximum price you are willing to pay: $"))
+   max_distance = float(input("Maximum distance from campus: "))
+   distance_unit = input("Is the distance in miles or kilometers? ").strip().lower()
+
+
+   # Filter housing options
+   filtered_by_bed = Bed.filter(housing_list, bed)
+   filtered_by_bath = Bath.filter(filtered_by_bed, bath)
+   filtered_by_price = Price.filter(filtered_by_bath, min_price, max_price)
+   matching_houses = Distance.filter(filtered_by_price, max_distance, unit=distance_unit)
+
+
+   # Display results
+   if matching_apartments:
+       print("\nHere are the housing options that match your preferences:\n")
+       for apartment in matching_apartments:
+           print(house)
+   else:
+       print("\nSorry, no housing options match your preferences.")

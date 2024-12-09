@@ -1,4 +1,5 @@
 import pandas as pd
+import data_processing
 
 """ Final Project: Student Housing FInder
 UMD Student Housing Finder Framework
@@ -40,13 +41,13 @@ class Housing:
         df = pd.read_csv(filepath)
         return [
             Housing(
-                id=row['property_id'],
+                id=row['prop_id'],
                 property=row['building_name'],
-                bed=row['number_of_beds'],
-                bath=row['number_of_bathrooms'],
+                bed=row['num_beds'],
+                bath=row['num_baths'],
                 price=row['price'],
-                sqft=row['square_feet'],
-                proximity=row['distance_to_campus']
+                sqft=row['sqft'],
+                proximity=row['dis_to_campus_[mi]']
             )
             for _, row in df.iterrows()
         ]
@@ -69,8 +70,25 @@ class Housing:
 
 if __name__ == "__main__": 
     """Main function to load data, get user preferences, and find matching housing."""
+    
+    # initalizing the raw data file path
+    raw_data_filepath = 'housing_data.csv'
+
+    # Process the raw data using the InputProcessing class
+    housing_processor = data_processing.InputProcessing(raw_data_filepath)
+    cleaned_data = housing_processor.process_input()
+
+    # Save the cleaned data to a new file
+    cleaned_data_filepath = 'cleaned_housing_data.csv'
+    cleaned_data.to_csv(cleaned_data_filepath, index=False)
+    
+    # Message to the user
+    print("Housing data has been cleaned.")
+    
     # Load housing data
     housing_list = Housing.load_housing_data('cleaned_housing_data.csv')
+    print("Housing data has been loaded.")
+    
     #Welcome Statement
     print("Welcome to University of Maryland Apartment Finder!\n")
     #User preferences
@@ -89,6 +107,3 @@ if __name__ == "__main__":
             print(house)
     else:
         print("\nSorry, no apartments match your preferences.")
-
-
-

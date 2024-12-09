@@ -58,7 +58,15 @@ class Bed(Housing):
        super().__init__(id, property, bed, bath, price, sqft, proximity)
 
    def filter(housing_list, bed):
-       """Filter housing by the number of bedrooms."""
+       """Filter housing by the number of bedrooms.
+       
+       Args:
+            housing_list (list): List of Housing objects.
+            bed (int): Desired number of bedrooms.
+
+        Returns:
+            list: A filtered list of Housing objects with the specified number of bedrooms.
+       """
        return [house for house in housing_list if house.bed == bed]
 
 class Bath(Housing):
@@ -78,7 +86,14 @@ class Price(Housing):
        super().__init__(id, property, bed, bath, price, sqft, proximity)
 
    def filter(housing_list, min_price, max_price):
-       """Filter housing by minimum and maximum price."""
+       """Filter housing by minimum and maximum price.
+       Args:
+            housing_list (list): List of Housing objects.
+            bath (int): Desired number of bathrooms.
+
+        Returns:
+            list: A filtered list of Housing objects with the specified number of bathrooms.
+       """
        return [house for house in housing_list if min_price <= house.price <= max_price]
 
 

@@ -1,11 +1,8 @@
 import pandas as pd
-from housing import Housing
-import argparse
 
 """
 Responsible for cleaning and approving the .csv input data
 """
-
 
 class InputProcessing:
     """
@@ -33,17 +30,11 @@ class InputProcessing:
             self.data = pd.read_csv(self.input_file)
         except Exception as e:
             print(f"Error reading the input file: {e}")
-            self.data = None
 
     def clean_data(self):
         """
         Clean the data and return the cleaned data
         """
-        if self.data is None:
-            print("No data to clean.")
-            return None
-        
-        # Append "(Studio)" to prop_id if num_beds is "Studio"
         self.data['prop_id'] = self.data.apply(
             lambda row: f"{row['prop_id']} (Studio)" if row['num_beds'] == 'Studio' else row['prop_id'], axis=1
         )
@@ -64,48 +55,3 @@ class InputProcessing:
         self.read_input()
         cleaned_data = self.clean_data()
         return cleaned_data
-
-
-
-''' {Sample usage of the class}
-Setting the input file
-input_file = 'housing.csv'
-
-Initialize the InputProcessing class
-housing_processor = InputProcessing(input_file)
-
-Read and clean the data
-housing_processor.read_input()
-
-Process the input data
-cleaned_data = housing_processor.process_input()
-
-Filter the data based on user preferences (example)
-filtered_housing = housing_processor.filter_data(budget=1200, room_count=2, proximity=2.0)
-
-Display the filtered results
-print(filtered_housing)
-'''
-
-def parse_args():
-    parser = argparse.ArgumentParser(description="Process housing data.")
-    parser.add_argument('input_file', type=str, help='The path to the input CSV file')
-    return parser.parse_args()
-
-if __name__ == "__main__":
-    args = parse_args()
-    input_file = args.input_file
-
-    housing_processor = InputProcessing(input_file)
-    housing_processor.read_input()
-    cleaned_data = housing_processor.process_input()
-
-    print("No Errors in processing housing data!")
-    print("----------------")
-    print("You can now enter your prefrences.")
-    print("Appliciple filters are: budget, room_count, square_footage, proximity")
-    print("Example: housing.py --budget 1200 --room_count 2 --square_footage 1000 --proximity 2.0")
-    
-    output_file = 'cleaned_housing_data.csv'
-    cleaned_data.to_csv(output_file, index=False)
-    print(f"Cleaned data saved to {output_file}")

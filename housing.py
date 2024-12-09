@@ -115,6 +115,20 @@ class Distance(Housing):
 
 if __name__ == "__main__":
    """Main function to load data, get user preferences, and find matching housing."""
+   # Load and process raw housing data
+   raw_data_filepath = 'housing_data.csv'
+    
+    # Process the raw data
+   housing_processor = data_processing.InputProcessing(raw_data_filepath)
+   cleaned_data = housing_processor.process_input()
+    
+    # Save the cleaned data to a new file
+   cleaned_data_filepath = 'cleaned_housing_data.csv'
+   cleaned_data.to_csv(cleaned_data_filepath, index=False)
+
+   # Uncomment below to check the cleaned data
+   # print(cleaned_data)
+   
    # Load housing data
    housing_list = Housing.load_housing_data('cleaned_housing_data.csv')
 

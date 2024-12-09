@@ -23,6 +23,7 @@ class Housing:
     def __init__(self, id, property, bed, bath, price, sqft, proximity):
         self.name = id
         self.property = property
+        self.bed = bed
         self.bath = bath 
         self.price = price 
         self.sqft = sqft
@@ -107,12 +108,10 @@ class Distance(Housing):
        return kilometers * 0.621371
    
    def filter(housing_list, max_distance, unit="miles"):
-       """Filter housing by maximum distance, converting to miles if needed."""
-       if unit == "kilometers":
-           max_distance = Distance.convert_to_miles(max_distance)
-       return [house for house in housing_list if house.proximity <= max_distance]
-
-   print("\nSorry, no apartments match your preferences.")
+    """Filter housing by maximum distance, converting to miles if needed."""
+    if unit == "kilometers":
+        max_distance = Distance.convert_to_miles(max_distance)
+    return [house for house in housing_list if house.proximity <= max_distance]
 
 if __name__ == "__main__":
    """Main function to load data, get user preferences, and find matching housing."""

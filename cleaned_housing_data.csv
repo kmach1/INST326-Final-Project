@@ -1,8 +1,8 @@
 prop_id,building_name,num_beds,num_baths,price,sqft,dis_to_campus_[mi]
 S1 (Studio),Union on Knox,1,1,1950,388,0.7
-A1u,Union on Knox,1,1,2250,463,0.7
-B1u,Union on Knox,2,2,1525,744,0.7
-D1u,Union on Knox,4,4,1250,1255,0.7
+A1,Union on Knox,1,1,2250,463,0.7
+B1,Union on Knox,2,2,1525,744,0.7
+D1,Union on Knox,4,4,1250,1255,0.7
 MURPHYA (Studio),The Hub,1,1,1959,369,0.6
 1X1A,The Hub,1,1,2199,613,0.6
 2X2A,The Hub,2,2,1145,1030,0.6
@@ -19,11 +19,11 @@ Studio (Studio),University View,1,1,2049,unknown,0.8
 4bed4bath,University View,4,4,1219,unknown,0.8
 4bed2bath,University View,4,2,1125,unknown,0.8
 S1 (Studio),Tempo,1,1,1815,390,1.0
-A1t,Tempo,1,1,2100,492,1.0
-B2t,Tempo,2,2,1429,825,1.0
-C1t,Tempo,3,3,1425,839,1.0
-D1t-Combo,Tempo,4,4,1219,995,1.0
-E1t,Tempo,5,5,1295,1540,1.0
+A1,Tempo,1,1,2100,492,1.0
+B2,Tempo,2,2,1429,825,1.0
+C1,Tempo,3,3,1425,839,1.0
+D1-Combo,Tempo,4,4,1219,995,1.0
+E1,Tempo,5,5,1295,1540,1.0
 Aurora,Aspen Heights,1,1,2019,457,0.5
 Frisco,Aspen Heights,2,2,1529,818,0.5
 Telluride,Aspen Heights,3,3,1399,1029,0.5

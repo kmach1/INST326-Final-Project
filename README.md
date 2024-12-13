@@ -34,6 +34,7 @@ None, just run the gui.py file.
 
 Once the application boots up, it will load the data
   - If booted correctly, the message: "Housing data sucessfully loaded" will apear
+
 ![image](https://github.com/user-attachments/assets/741586ed-223a-4bd0-b689-87323b2291f0)
     
 The user then specifies the following:
